@@ -19,13 +19,15 @@ export default function App() {
         fetch(url)
             .then(res => res.json())
             .then(data => setPortfolioData(data))
+            // .then(data => console.log(data))
+            // .then(data => setProject(data))
     }, [url])
 
 
     function handleClick(id) {
         // console.log(event.target)
         // console.log(event)
-        console.log(id)
+        // console.log(id)
         // for
         portfolioData.forEach((item) => {
             if (item.id === id) {

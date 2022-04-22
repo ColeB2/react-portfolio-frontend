@@ -17,6 +17,20 @@ body {
     padding: 20px;
 }
 
+/* Main Clicked on Project Displaying */
+.project {
+    column-count: 2;
+}
+
+.project--info {
+    /* float: left; */
+    /* width: 50%; */
+
+}
+.project--image {
+    width: 100%;
+}
+
 
 .projects-list {
     display: flex;
@@ -27,6 +41,7 @@ body {
 
 .scroller {
     width: 300px; 
+    /* padding-top: 100px; */
     /* flex: 0 0 auto; */
     /* display: flex; */
 }
