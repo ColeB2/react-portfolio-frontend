@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header";
+import Project from "./components/Project";
+import Scroller from "./components/Scroller";
+
+// import { getAllProjects } from "./services/ProjectServices";
+
+
+export default function App() {
+
+    const [portfolioData, setPortfolioData] = React.useState([{}])
+    const [project, setProject] = React.useState({})
+
+    
+
+    let url = "https://cole.pythonanywhere.com/api/v1/projects/"
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setPortfolioData(data))
+    }, [url])
+
+
+    function handleClick(id) {
+        // console.log(event.target)
+        // console.log(event)
+        console.log(id)
+        // for
+        portfolioData.forEach((item) => {
+            if (item.id === id) {
+                setProject(() => item)
+            }
+        })
+    
+    }
+
+
+    const projects = portfolioData.map(item => {
+        return (
+            <Scroller
+                key={item.id}
+                handleClick={() => handleClick(item.id)}
+                {...item}
+                
+            />
+        )
+    })
+
+
+
+    return (
+        
+        <>
+            <Header />
+            <Project data={project} />
+            <section className="projects-list">
+                {projects}
+            </section>
+            
+        </>
+    )
 }
 
-export default App;
+//{/* <pre>{JSON.stringify(portfolioData, null, 2)}</pre> */}
