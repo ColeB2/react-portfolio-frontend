@@ -2,10 +2,10 @@ import React, {useEffect} from "react";
 
 import Header from "./components/Header";
 import Project from "./components/Project";
-import Scroller from "./components/Scroller";
+import Cards from "./components/Cards";
 
-// import { getAllProjects } from "./services/ProjectServices";
 
+import Carousel from "./components/Carousel";
 
 export default function App() {
 
@@ -38,9 +38,9 @@ export default function App() {
     }
 
 
-    const projects = portfolioData.map(item => {
+    const allProjects = portfolioData.map(item => {
         return (
-            <Scroller
+            <Cards
                 key={item.id}
                 handleClick={() => handleClick(item.id)}
                 {...item}
@@ -49,17 +49,22 @@ export default function App() {
         )
     })
 
-
-
     return (
         
         <>
             <Header />
             <Project data={project} />
-            <section className="projects-list">
-                {projects}
+
+            <h1>All Projects</h1>
+            <section className="cards-list">
+                
+                {allProjects}
             </section>
-            
+
+            <hr></hr>
+            <h1> Testing Area</h1>
+            <Carousel data={portfolioData}
+            />  
         </>
     )
 }
