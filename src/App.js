@@ -2,10 +2,8 @@ import React, {useEffect} from "react";
 
 import Header from "./components/Header";
 import Project from "./components/Project";
-import Cards from "./components/Cards";
-
-
 import Carousel from "./components/Carousel";
+
 
 export default function App() {
 
@@ -25,10 +23,6 @@ export default function App() {
 
 
     function handleClick(id) {
-        // console.log(event.target)
-        // console.log(event)
-        // console.log(id)
-        // for
         portfolioData.forEach((item) => {
             if (item.id === id) {
                 setProject(() => item)
@@ -38,28 +32,13 @@ export default function App() {
     }
 
 
-    const allProjects = portfolioData.map(item => {
-        return (
-            <Cards
-                key={item.id}
-                handleClick={() => handleClick(item.id)}
-                {...item}
-                
-            />
-        )
-    })
-
     return (
         
         <>
             <Header />
             <Project data={project} />
 
-            <h1>All Projects</h1>
-            <section className="cards-list">
-                
-                {allProjects}
-            </section>
+  
 
             <hr></hr>
             <h1> Testing Area</h1>

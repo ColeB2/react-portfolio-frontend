@@ -8,7 +8,9 @@ export default function Project(props) {
                 <h1>{data.title}</h1>
                 <p>{data.description}</p>
             </div>
-            <img src={data.image} className="project--image"/>
+            <div className="image--div">
+                <img src={data.image} className="project--image"/>
+            </div>
         </div>
     )
 }
