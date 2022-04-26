@@ -44,8 +44,6 @@ body {
     gap: 20px;
     overflow-x: auto;
     padding: 15px;
-    
-
 }
 
 .cards {
@@ -64,5 +62,28 @@ body {
     width: 200px;
     background-color: black;
     /* height: 300px; */
+}
+
+
+/* Card --> used with swiper */
+.card {
+    width: 200px;
+    cursor: pointer; 
+}
+
+
+.card--image {
+    width: 200px;
+    background-color: black;
+    /* height: 300px; */
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.swiper-slide {
+    width: auto;
+    padding: 15px;
 }
 

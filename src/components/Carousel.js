@@ -8,7 +8,7 @@ import { Navigation, Pagination, Scrollbar } from 'swiper';
 // import 'swiper/css/navigation'
 
 import 'swiper/css/bundle'
-import Cards from "./Cards";
+import Card from "./Card";
 
 
 
@@ -20,11 +20,14 @@ export default function Carousel(props) {
             modules={[Navigation, Pagination]}
             direction={'horizontal'}
             // centeredSlides={true}
-            onSlideChange={() => console.log('slide change')}
-            spaceBetween={20}
-            freeMode={true}
-            slidesPerView={5}
-            slidesPerGroup={1}
+            // onSlideChange={() => console.log('slide change')}
+            spaceBetween={0}
+            // freeMode={true}
+            slidesPerView={'auto'}
+            slidesPerGroupAuto
+            // slidesPerView={4}
+            // slidesPerGroup={3}
+            // slidesPerGroupAuto
             
             pagination={
                 {
@@ -32,7 +35,7 @@ export default function Carousel(props) {
                     el: '.swiper-pagination' 
                 }
             }
-            navigation
+            navigation={{}}
         >
         {/* using array */}
         {
@@ -45,10 +48,15 @@ export default function Carousel(props) {
                     // />
                     <SwiperSlide>
                         {
-                            <div className="">
-                                <h2>{item.title}</h2>
-                                <img src={item.image} className="cards--image"/>
-                            </div>
+                            <Card
+                                key={item.id}
+                                handleClick={() => props.handleClick(item.id)}
+                                {...item}
+                            />
+                            // <>
+                            //     <h2>{item.title}</h2>
+                            //     <img src={item.image} className="cards--image"/>
+                            // </>
                         }
                     </SwiperSlide>
 
@@ -58,18 +66,6 @@ export default function Carousel(props) {
             }
             )
         }
-            {/* <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide> */}
         </Swiper>
     )
 }

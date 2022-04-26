@@ -63,8 +63,10 @@ export default function App() {
 
             <hr></hr>
             <h1> Testing Area</h1>
-            <Carousel data={portfolioData}
-            />  
+            <section className="cards-list">
+                <Carousel data={portfolioData} handleClick={handleClick}/>  
+            </section>
+            
         </>
     )
 }
