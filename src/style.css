@@ -20,39 +20,28 @@ body {
 /* Main Clicked on Project Displaying */
 .project {
     column-count: 2;
-    /* height: 550px; */
     height: 40vh;
-    /* overflow-x: hidden; */
-    /* padding: 50px; */
 
-    /* border: 10px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .project--info {
-    /* text-align: center; */
-    /* margin-left: auto;
-    margin-right: auto; */
     display: block;
     display: inline-flexbox;
-    /* align-items: center; */
-    /* width: 100%; */
+
     height: 100%;
     width: 400px;
-    /* width: auto; */
-    /* width: 50%; */
+
     padding-left: 15px;
-    border: 1px solid rgb(95, 43, 43); /* Breaks without this?*/
-    /* float: left; */
-    /* width: 50%; */
+
 
 }
 .image--div {
     width: 800px;
     height: 100%;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 
     display: flex;
     display: block;
@@ -61,23 +50,10 @@ body {
     overflow-x: hidden;
 }
 .project--image {
-    border: 0px solid black;
     height: auto;
     height: 100%;
     align-items: center;
-    /* width: auto; */
-    /* object-fit: cover; */
-    /* width: 50%; */
-    /* width: 85%; */
-    /* height: fit-content; */
-    /* width: fit-content; */
-    /* position: relative; */
-    /* margin: auto; */
-    /* width: 100%;
-    height: 100%; */
-    /* width: 75%; */
-    /* width: auto; */
-    /* border: 10px solid yellow; */
+
 }
 
 
