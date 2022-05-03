@@ -2,9 +2,10 @@
     box-sizing: border-box;
 }
 
-body {
+body, html {
     font-family: "Arial", sans-serif;
     margin: 0;
+    height: 100%;
 }
 
 
@@ -12,6 +13,7 @@ body {
     display: flex;
     align-items: center;
     height: 65px;
+    height: 10vh;
     background-color: black;
     color: rgb(255, 255, 255);
     padding: 20px;
@@ -20,7 +22,7 @@ body {
 /* Main Clicked on Project Displaying */
 .project {
     column-count: 2;
-    height: 40vh;
+    height: 70vh;
 
     display: flex;
     justify-content: center;
@@ -58,11 +60,18 @@ body {
 
 
 .cards-list {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 15px;
+    cursor: pointer;
+    height: 20vh;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    /* gap: 20px; */
+    /* overflow-x: auto; */
+    /* padding: 15px; */
+    /* float: left; */
+}
+
+.cards-list-2 {
+    float: left;
 }
 
 /* Card --> used with swiper */

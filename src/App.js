@@ -16,8 +16,6 @@ export default function App() {
         fetch(techUrl)
             .then(res => res.json())
             .then(data => setTechData(data))
-            // .then(data => console.log(data))
-            // .then(data => setProject(data))
     }, [techUrl])
 
     
@@ -27,13 +25,10 @@ export default function App() {
         fetch(url)
             .then(res => res.json())
             .then(data => setPortfolioData(data))
-            // .then(data => console.log(data))
-            // .then(data => setProject(data))
     }, [url])
-
-
-    function handleClick(id) {
-        portfolioData.forEach((item) => {
+    
+    function handleClick(id, data) {
+        data.forEach((item) => {
             if (item.id === id) {
                 setProject(() => item)
             }
@@ -41,8 +36,6 @@ export default function App() {
     
     }
 
-    console.log(portfolioData)
-    console.log(techData)
 
     return (
         
@@ -50,16 +43,10 @@ export default function App() {
             <Header />
             <Project data={project} />
 
-  
-
             <hr></hr>
-            <h5>All Projects</h5>
             <section className="cards-list">
-                <Carousel data={portfolioData} handleClick={handleClick}/>  
-            </section>
-            
+                <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  
+            </section>  
         </>
     )
 }
-
-//{/* <pre>{JSON.stringify(portfolioData, null, 2)}</pre> */}

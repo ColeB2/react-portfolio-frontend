@@ -50,7 +50,7 @@ export default function Carousel(props) {
                         {
                             <Card
                                 key={item.id}
-                                handleClick={() => props.handleClick(item.id)}
+                                handleClick={() => props.handleClick(item.id, props.data)}
                                 {...item}
                             />
                             // <>
