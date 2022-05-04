@@ -22,6 +22,14 @@ body, html {
     color: rgb(255, 255, 255);
     padding: 20px;
 }
+.link {
+    margin-left: auto;
+    text-decoration: none;
+}
+.link > a {
+    text-decoration: none;
+    color: white;
+}
 
 /* Main Clicked on Project Displaying */
 .project {
