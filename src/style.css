@@ -8,6 +8,10 @@ body, html {
     height: 100%;
 }
 
+.max-h {
+    max-height: 65vh;
+}
+
 
 .portfolio--header {
     display: flex;

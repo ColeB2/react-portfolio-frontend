@@ -16,9 +16,9 @@ export default function Project(props) {
         
         
         //react
-        <div className="row h-25">
+        <div className="row">
             <div className="col-md-8">
-                <img src={data.image} width="100%"/>
+                <img src={data.image} width="100%" className="max-h"/>
             </div>
             <div className="col-md-4">
                 <h1>{data.title}</h1>

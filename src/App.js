@@ -39,7 +39,7 @@ export default function App() {
 
     return (
         
-        <>
+        <div>
             <Header />
             <Project data={project} />
 
@@ -47,6 +47,6 @@ export default function App() {
             <section className="cards-list">
                 <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  
             </section>  
-        </>
+        </div>
     )
 }
