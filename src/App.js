@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import Header from "./components/Header";
 import Project from "./components/Project";
 import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
 
 //https://www.youtube.com/watch?v=6c2NqDyxppU react in django
 export default function App() {
@@ -47,6 +48,8 @@ export default function App() {
             <section className="cards-list">
                 <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  
             </section>  
+
+            <Footer />
         </div>
     )
 }
