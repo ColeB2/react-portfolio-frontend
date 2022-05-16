@@ -5,7 +5,6 @@ import Project from "./components/Project";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 
-//https://www.youtube.com/watch?v=6c2NqDyxppU react in django
 export default function App() {
 
     const [portfolioData, setPortfolioData] = React.useState([{}])
