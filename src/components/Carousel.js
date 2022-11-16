@@ -23,6 +23,7 @@ export default function Carousel(props) {
             // onSlideChange={() => console.log('slide change')}
             spaceBetween={0}
             // freeMode={true}
+            loop={true}
             slidesPerView={'auto'}
             slidesPerGroupAuto
             // slidesPerView={4}
