@@ -80,7 +80,10 @@ h5 {
 .project--image--overlay {
     position: absolute;
     top: 0;
-    margin-left: 100%;
+    /* left: 95%; */
+    right: 0;
+    /* margin-left: 100%; */
+    /* text-align: right; */
     color: white;
 }
 

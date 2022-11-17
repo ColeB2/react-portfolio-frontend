@@ -10,7 +10,8 @@ export default function App() {
     const [portfolioData, setPortfolioData] = React.useState([{}])
     const [currentProject, setCurrentProject] = React.useState(null)
     const [techData, setTechData] = React.useState([{}])
-    const [testData2, setTestData2] = React.useState([{}])
+    const [filteredProjectData, setFilteredProjectData] = React.useState([{}])
+    
 
 
     const techUrl = "https://cole.pythonanywhere.com/api/v1/technologies/"
@@ -47,7 +48,7 @@ export default function App() {
             ret.push(item)
             console.log(tech, techData, techData[tech])
         }
-        setTestData2(ret)
+        setFilteredProjectData(ret)
 
     }, [portfolioData, techData])
     
@@ -64,11 +65,10 @@ export default function App() {
 
     console.log("techData", techData)
     console.log("portData", portfolioData, typeof(portfolioData))
-    console.log('test2', testData2)
+    console.log('test2', filteredProjectData)
 
     function handleClose() {
         setCurrentProject(() => null)
-
     }
 
 
@@ -88,8 +88,8 @@ export default function App() {
             {/* <section className="cards-list"> */}
                 {/* <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  */}
                 {
-                    testData2.map((item, idx) => {
-                        console.log('testData2.map', item.data, typeof(item.data))
+                    filteredProjectData.map((item, idx) => {
+                        console.log('filteredProjectData.map', item.data, typeof(item.data))
                         return (
                         item.data &&
                         <Carousel 
