@@ -2,25 +2,17 @@ import React from "react";
 
 export default function Project(props) {
     let data = props.data
+    let handleClick = props.handleClick
     return (
-        // <div className="project">
-        //     <div className="image--div">
-        //         <img src={data.image} className="project--image"/>
-        //     </div>
-        //     <div className="project--info">
-        //         <h1>{data.title}</h1>
-        //         <p>{data.description}</p>
-        //     </div>
+        <div className="project--overlay">
             
-        // </div>
-        
-        
-        //react
-        <div className="row">
-            <div className="col-md-8">
-                <img src={data.image} width="100%" className="max-h"/>
+            <div className="project--image">
+                <img src={data.image} width="100%" className=""/>
             </div>
-            <div className="col-md-4">
+            <div className="project--image--overlay">
+                <button onClick={handleClick}>X</button>
+            </div>
+            <div className="project--info">
                 <h1>{data.title}</h1>
                 <p>{data.description}</p>
             </div>

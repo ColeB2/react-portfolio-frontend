@@ -8,9 +8,8 @@ import Footer from "./components/Footer";
 export default function App() {
 
     const [portfolioData, setPortfolioData] = React.useState([{}])
-    const [currentProject, setCurrentProject] = React.useState({})
+    const [currentProject, setCurrentProject] = React.useState(null)
     const [techData, setTechData] = React.useState([{}])
-    const [testData, setTestData] = React.useState([{}])
     const [testData2, setTestData2] = React.useState([{}])
 
 
@@ -25,23 +24,13 @@ export default function App() {
 
     const url = "https://cole.pythonanywhere.com/api/v1/projects/"
     useEffect(() => {
-        console.log("called url")
         fetch(url)
             .then(res => res.json())
             .then(data => setPortfolioData(data))
     }, [url])
 
     //Filtered Data for all types 1-11 Python->TypeScript
-    //Display them all in carousels, with titles.
-    // useEffect sets basic data for projects filtered.
-    useEffect(() => {
-        setTestData(portfolioData.filter((project) => {
-            return (
-                project.technologies && 
-                Object.values(project.technologies).includes(11))
-        }))
-    }, [portfolioData])
-
+    //Basic useeffect to filter data for multiple caoursels.
     useEffect(() => {
         const ret = []
 
@@ -51,17 +40,16 @@ export default function App() {
             item.data = portfolioData.filter((project) => {
                 return (
                     project.technologies &&
-                    Object.values(project.technologies).includes(techData[tech].id)
+                    Object.values(project.technologies).includes(
+                        techData[tech].id)
                 )
             })
-            console.log('item', item)
             ret.push(item)
             console.log(tech, techData, techData[tech])
         }
-        console.log('ret', ret)
         setTestData2(ret)
 
-    }, [portfolioData])
+    }, [portfolioData, techData])
     
 
 
@@ -75,48 +63,48 @@ export default function App() {
     }
 
     console.log("techData", techData)
-    // console.log("project", project)
-    console.log("portData", portfolioData)
-    console.log('test', testData)
+    console.log("portData", portfolioData, typeof(portfolioData))
     console.log('test2', testData2)
 
-    // console.log('here', portfolioData[0].technologies)
-    // if (portfolioData !== [{}]) {
-    //     const test = portfolioData.filter(proj => proj.technologies.includes(3))
+    function handleClose() {
+        setCurrentProject(() => null)
 
-    // }
-    // const test = portfolioData.filter(proj => proj.technologies.includes(3))
+    }
+
 
 
 
     return (
         
         <div>
+            { currentProject === null ? 
+                null : 
+                <Project data={currentProject} handleClick={handleClose} />}
             <Header />
-            <Project data={currentProject} />
+            
+            
 
             <hr></hr>
-            <section className="cards-list">
-                <Carousel key={1} data={portfolioData} handleClick={handleClick}/> 
-                <Carousel key={2} data={testData} handleClick={handleClick}/> 
-                {testData2.map((item, idx) => {
-                    return (
-                    <Carousel 
-                        key={idx}
-                        data={item.data}
-                        handleClick={handleClick}
-                    />
-                    )
-                })
+            {/* <section className="cards-list"> */}
+                {/* <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  */}
+                {
+                    testData2.map((item, idx) => {
+                        console.log('testData2.map', item.data, typeof(item.data))
+                        return (
+                        item.data &&
+                        <Carousel 
+                            key={idx}
+                            title={item.title}
+                            data={item.data}
+                            handleClick={handleClick}
+                        />
+                        )
+                    })
                 }
-                {/* <Carousel key={3} data={portfolioData} handleClick={handleClick}/>   */}
-                {/* <Carousel key={4} data={portfolioData} handleClick={handleClick}/>  */}
-                {/* <Carousel key={5} data={portfolioData} handleClick={handleClick}/>  */}
-                {/* <Carousel key={6} data={portfolioData} handleClick={handleClick}/>  */}
+            {/* </section>   */}
             
-            </section>  
 
-            {/* <Footer /> */}
+            
         </div>
     )
 }
