@@ -24,14 +24,29 @@ h5 {
 
 
 .portfolio--header {
+    /* position: fixed;
     display: flex;
     align-items: center;
     height: 65px;
     height: 10vh;
     background-color: black;
     color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 20px; */
+
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    height: 10vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    z-index: 2;
 }
+
+
 .link {
     margin-left: auto;
     text-decoration: none;
@@ -51,6 +66,7 @@ h5 {
     width: 50%;
     height: 100%;
     z-index: 2;
+    overflow-y: scroll;
 
     /* display: none; */
 }
@@ -106,6 +122,7 @@ h5 {
 .cards-list {
     cursor: pointer;
     height: 20vh;
+    padding-top: 150px;
     /* display: flex; */
     /* flex-wrap: nowrap; */
     /* gap: 20px; */
@@ -139,5 +156,11 @@ h5 {
 .swiper-slide {
     width: auto;
     padding: 15px;
+}
+
+
+/* Other */
+.noscroll {
+    overflow-y: hidden;
 }
 

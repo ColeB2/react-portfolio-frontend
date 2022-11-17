@@ -69,6 +69,7 @@ export default function App() {
 
     function handleClose() {
         setCurrentProject(() => null)
+
     }
 
 
@@ -76,17 +77,15 @@ export default function App() {
 
     return (
         
-        <div>
-            { currentProject === null ? 
-                null : 
-                <Project data={currentProject} handleClick={handleClose} />}
+        <div className="main">
             <Header />
-            
-            
 
-            <hr></hr>
-            {/* <section className="cards-list"> */}
-                {/* <Carousel key={1} data={portfolioData} handleClick={handleClick}/>  */}
+            { 
+                currentProject === null ? null : 
+                <Project data={currentProject} handleClick={handleClose} />
+            }
+  
+            <section className="cards-list">
                 {
                     filteredProjectData.map((item, idx) => {
                         console.log('filteredProjectData.map', item.data, typeof(item.data))
@@ -101,10 +100,7 @@ export default function App() {
                         )
                     })
                 }
-            {/* </section>   */}
-            
-
-            
+            </section>  
         </div>
     )
 }
