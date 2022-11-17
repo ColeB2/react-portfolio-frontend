@@ -15,6 +15,7 @@ import Card from "./Card";
 // https://swiperjs.com/react
 // https://www.raddy.dev/blog/better-netflix-carousel-using-swiperjs/
 export default function Carousel(props) {
+    console.log("carousel props", props, props.key)
     return (
         <Swiper
             modules={[Navigation, Pagination]}
