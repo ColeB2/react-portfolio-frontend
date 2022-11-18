@@ -57,57 +57,63 @@ h5 {
 }
 
 /* Main Clicked on Project Displaying */
-.project--overlay {
-    background-color: rgb(19,19,19);
-    position: fixed;
-    margin: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 100%;
-    z-index: 2;
-    overflow-y: scroll;
+@media only screen and (max-width: 768px) {
+    .project--overlay {
+        background-color: rgb(19,19,19);
+        position: fixed;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+        /* display: none; */
+    }
 
-    /* display: none; */
 }
+
+@media only screen and (min-width: 769px) {
+    .project--overlay {
+        background-color: rgb(19,19,19);
+        position: fixed;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        /* width: 50%; */
+        width: 775px;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+        /* display: none; */
+    }
+
+}
+
 
 .project--info {
     color: white;
     width: 100%;
     margin: auto;
-
     padding-left: 15px;
     padding-right: 15px;
-
-
 }
 
 .project--image {
-    /* height: auto; */
-    /* height: 100%; */
-    /* width: 50%; */
     width: 100%;
-
     margin: auto;
-    /* align-items: center; */
-
 }
 
 .project--image--overlay {
     position: absolute;
     top: 0;
-    /* left: 95%; */
     right: 0;
-    /* margin-left: 100%; */
-    /* text-align: right; */
     color: white;
 }
 
 .image--div {
     width: 800px;
     height: 100%;
-    /* border: 5px solid red; */
-
     display: flex;
     display: block;
     display: contents;
@@ -164,3 +170,32 @@ h5 {
     overflow-y: hidden;
 }
 
+
+.x--image {
+    width: 50px;
+    font-size: 50px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    
+
+    filter: 
+        
+        invert(100%)
+        sepia(100%)
+        saturate(100%)
+        hue-rotate(45deg)
+        brightness(102%)
+        contrast(101%);
+}
+
+.x--image--container {
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+
+.x--image:hover {
+    transform: scale(1.2);
+}

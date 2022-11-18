@@ -1,5 +1,7 @@
 import React from "react";
 
+import xImage from '../images/x.svg'
+
 export default function Project(props) {
     let data = props.data
     let handleClick = props.handleClick
@@ -9,7 +11,14 @@ export default function Project(props) {
                 <img src={data.image} width="100%" className=""/>
             </div>
             <div className="project--image--overlay">
-                <button onClick={handleClick}>X</button>
+                <div className="x--image--container">
+                    <img
+                        className="x--image"
+                        onClick={handleClick}
+                        src={xImage} alt="X icon to close">
+                    </img>
+                </div>
+                
             </div>
             <div className="project--info">
                 <h1>{data.title}</h1>
