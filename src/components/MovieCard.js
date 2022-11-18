@@ -1,5 +1,7 @@
 import React from "react";
 
+
+// Currently Depracated.
 export default function MovieCard(props) {
     let data = props.data
     return (

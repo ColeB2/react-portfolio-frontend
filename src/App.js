@@ -36,7 +36,7 @@ export default function App() {
         const ret = []
 
         for (const tech in techData) {
-            let item = {}
+            const item = {}
             item.title = techData[tech].name
             item.data = portfolioData.filter((project) => {
                 return (
