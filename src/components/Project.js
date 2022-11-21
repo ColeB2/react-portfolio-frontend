@@ -9,7 +9,7 @@ export default function Project(props) {
     let relatedProjects = props.relatedProjects
     return (
         <div className="project--overlay">
-            <div className="x--image--overlay">
+            <div className="project--image">
                 <div className="x--image--container">
                     <img
                         className="x--image"
@@ -17,15 +17,17 @@ export default function Project(props) {
                         src={xImage} alt="X icon to close">
                     </img>
                 </div>
+                <img src={data.image} alt="Project" width="100%" className=""/>
             </div>
-            <div className="project--image">
-                <img src={data.image} width="100%" className=""/>
+
+            <div className="project--info">
+                <div className="project--title--container">
+                    <div className="project--title--bg">-</div>
+                    <h1 className="project--title">{data.title}</h1>   
+                </div> 
+                <p className="project--data">{data.description}</p>
             </div>
             
-            <div className="project--info">
-                <h1>{data.title}</h1>
-                <p>{data.description}</p>
-            </div>
             {/* 6 related projects below */}
             <div className="project--related">
             {
@@ -43,6 +45,7 @@ export default function Project(props) {
 
             }
             </div>
+            
         </div>
     )
 }
