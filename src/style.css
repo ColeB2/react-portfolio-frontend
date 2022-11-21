@@ -133,16 +133,6 @@ Main Clicked on Project Displaying
 }
 
 
-.image--div {
-    width: 800px;
-    height: 100%;
-    display: flex;
-    display: block;
-    display: contents;
-    display: inline-flex;
-    overflow-x: hidden;
-}
-
 /* 
 Project Overlay --> X close buttom
     x--image--overlay container around everytrhong
@@ -202,6 +192,7 @@ Project Overlay --> X close buttom
     flex-wrap: wrap;
     place-content: center;
     background-color: rgb(19,19,19);
+    padding-bottom: 100px;
 
 }
 
