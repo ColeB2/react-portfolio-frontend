@@ -27,18 +27,22 @@ export default function Project(props) {
                 <p>{data.description}</p>
             </div>
             {/* 6 related projects below */}
+            <div className="project--related">
             {
-                relatedProjects.map(item => {
+                relatedProjects.map((item, idx) => {
                     return (
-                        <Card 
-                            key={1}
-                            handleClick={handleClick}
-                            {...item}
-                        />
+                        <div className="project--related--item">
+                            <Card 
+                                key={idx}
+                                handleClick={handleClick}
+                                {...item}
+                            />
+                        </div>
                     )
                 })
 
             }
+            </div>
         </div>
     )
 }

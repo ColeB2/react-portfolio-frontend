@@ -106,7 +106,7 @@ export default function App() {
             <section className="cards-list">
                 {/* Pinned//Featured Projects//Top list of projects */}
                 <Carousel
-                    key={0}
+                    key={99}
                     title="Featured Projects"
                     data={pinnedProjectData}
                     handleClick={handleClick}
