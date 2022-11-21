@@ -10,6 +10,7 @@ export default function App() {
     const [portfolioData, setPortfolioData] = React.useState([{}])
     const [currentProject, setCurrentProject] = React.useState(null)
     const [techData, setTechData] = React.useState([{}])
+    const [pinnedProjectData, setPinnedProjectData] = React.useState([{}])
     const [filteredProjectData, setFilteredProjectData] = React.useState([{}])
     
 
@@ -51,6 +52,20 @@ export default function App() {
         setFilteredProjectData(ret)
 
     }, [portfolioData, techData])
+
+    //pinned data
+    useEffect(() => {
+        setPinnedProjectData(portfolioData.filter((project) => {
+            return (project.pinned === true)
+        }))
+        console.log('useEffect pinned', pinnedProjectData)
+        // for (const project in portfolioData) {
+        //     let obj = portfolioData.filter((project) => {
+        //         return (project.pinned === true)
+        //     })
+        // }
+    }, [portfolioData])
+
     
 
 
@@ -69,7 +84,6 @@ export default function App() {
 
     function handleClose() {
         setCurrentProject(() => null)
-
     }
 
 
@@ -82,10 +96,22 @@ export default function App() {
 
             { 
                 currentProject === null ? null : 
-                <Project data={currentProject} handleClick={handleClose} />
+                <Project 
+                    data={currentProject}
+                    handleClick={handleClose}
+                    relatedProjects={pinnedProjectData}                
+                />
             }
   
             <section className="cards-list">
+                {/* Pinned//Featured Projects//Top list of projects */}
+                <Carousel
+                    key={0}
+                    title="Featured Projects"
+                    data={pinnedProjectData}
+                    handleClick={handleClick}
+                />
+                {/* Rest of projects based on tech. */}
                 {
                     filteredProjectData.map((item, idx) => {
                         console.log('filteredProjectData.map', item.data, typeof(item.data))

@@ -24,7 +24,8 @@ export default function Carousel(props) {
             modules={[Navigation, Pagination]}
             direction={'horizontal'}
             spaceBetween={0}
-            loop={true}
+            // loop={true}
+            rewind={true}
             slidesPerView={'auto'}
             slidesPerGroupAuto
             pagination={

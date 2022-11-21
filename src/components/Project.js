@@ -1,10 +1,12 @@
 import React from "react";
 
 import xImage from '../images/x.svg'
+import Card from "./Card";
 
 export default function Project(props) {
     let data = props.data
     let handleClick = props.handleClick
+    let relatedProjects = props.relatedProjects
     return (
         <div className="project--overlay">
             <div className="project--image">
@@ -24,6 +26,19 @@ export default function Project(props) {
                 <h1>{data.title}</h1>
                 <p>{data.description}</p>
             </div>
+            {/* 6 related projects below */}
+            {
+                relatedProjects.map(item => {
+                    return (
+                        <Card 
+                            key={1}
+                            handleClick={handleClick}
+                            {...item}
+                        />
+                    )
+                })
+
+            }
         </div>
     )
 }
