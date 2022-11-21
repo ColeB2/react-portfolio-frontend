@@ -11,28 +11,14 @@ body, html {
 }
 
 h5 {
-    /* margin: 0; */
-    /* padding: 0; */
     padding-left: 10;
     margin-left: 10px;
     color: white;
 }
 
-/* .max-h {
-    max-height: 65vh;
-} */
 
-
+/* HEADER */
 .portfolio--header {
-    /* position: fixed;
-    display: flex;
-    align-items: center;
-    height: 65px;
-    height: 10vh;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    padding: 20px; */
-
     position: fixed;
     display: flex;
     align-items: center;
@@ -47,16 +33,13 @@ h5 {
 }
 
 
-.link {
-    margin-left: auto;
-    text-decoration: none;
-}
-.link > a {
-    text-decoration: none;
-    color: white;
-}
 
-/* Main Clicked on Project Displaying */
+/* 
+Project.js css.
+OVERLAY
+Main Clicked on Project Displaying 
+--> Project.js
+*/
 @media only screen and (max-width: 768px) {
     .project--overlay {
         background-color: rgb(19,19,19);
@@ -121,73 +104,63 @@ h5 {
     overflow-x: hidden;
 }
 
+
+/*
+ RELATED PROJECT CARD SECTIONS
+    - Click on a project
+    - Pop up screen, bottom half, display 6 related projects.
+ */
 .project--related {
     display: flex;
     flex-wrap: wrap;
     place-content: center;
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr; */
-    /* align-items: flex-start; */
-    /* justify-content: center; */
-    /* justify-content: space-evenly; */
-    /* align-items: stretch; */
-    /* justify-content:space-around; */
-    /* width: 100%; */
-    /* margin: 25%; */
-    /* padding: 10px; */
-    /* padding: 25%; */
-    /* justify-content: center; */
-}
 
-.project--related > div:nth-child(even) {
-    display: flex;
-    justify-content: start;
-    flex: 50%;
-    /* padding-left: 5px; */
-    /* padding-bottom: 5px; */
-    padding: 5px 0px 5px 5px;
-    /* box-shadow: 0 0 0 1px yellow; */
-}
-
-.project--related > div:nth-child(odd) {
-    /* flex: 50%; */
-    display: flex;
-    justify-content: end;
-    flex: 50%;
-    /* padding-right: 5px; */
-    /* padding-bottom: 5px; */
-    padding: 5px 5px 5px 0px;
-
-    /* box-shadow: 0 0 0 1px yellow; */
 }
 
 .project--related--item {
-    /* justify-content: center; */
-    /* width: 50%; */
-    /* box-shadow: 0 0 0 1px black; */
+    display: flex;
+    flex: 50%;
+}
+
+.project--related--item:nth-child(odd) {
+    justify-content: end;
+    padding: 5px 5px 5px 0px;
+}
+
+.project--related--item:nth-child(even) {
+    justify-content: start;
+    flex: 50%;
+    padding: 5px 0px 5px 5px;
+}
+
+.project--related--item > div {
+    width: 300px;
+    cursor: pointer;
+}
+.project--related--item > div > img {
+    width: 300px;
+    height: 225px;
 }
 
 
 
 
-/* Swiper Card Stuff */
+/* 
+Swiper Card Stuff 
+- used Card.js --> used in carousels, and related projects.
+*/
 .cards-list {
     cursor: pointer;
     height: 20vh;
     padding-top: 150px;
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
-    /* gap: 20px; */
-    /* overflow-x: auto; */
-    /* padding: 15px; */
-    /* float: left; */
 }
 
-.cards-list-2 {
-    float: left;
-}
 
-/* Card --> used with swiper */
+/* 
+Card 
+--> used with swiper, 
+--> used within Project.js # related section
+*/
 .card {
     width: 200px;
     cursor: pointer; 
@@ -198,7 +171,6 @@ h5 {
     width: 200px;
     height: 150px;
     background-color: black;
-    /* height: 300px; */
 }
 
 .card:hover {
@@ -212,6 +184,16 @@ h5 {
 
 
 /* Other */
+.link {
+    margin-left: auto;
+    text-decoration: none;
+}
+.link > a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .noscroll {
     overflow-y: hidden;
 }
