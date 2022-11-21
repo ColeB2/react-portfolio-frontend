@@ -85,14 +85,12 @@ Main Clicked on Project Displaying
 .project--image {
     width: 100%;
     margin: auto;
+
+    /* position: fixed; */
+    /* position: sticky; */
+    /* top: 0; */
 }
 
-.project--image--overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: white;
-}
 
 .image--div {
     width: 800px;
@@ -102,6 +100,54 @@ Main Clicked on Project Displaying
     display: contents;
     display: inline-flex;
     overflow-x: hidden;
+}
+
+/* 
+Project Overlay --> X close buttom
+    x--image--overlay container around everytrhong
+    x--image--container container around ximage
+    x--image img class.
+*/
+.x--image--overlay {
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+
+}
+ /* Circle around X image. */
+.x--image--container {
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 50px;
+    border-radius: 50%;
+    background-color: black;
+    
+    
+}
+/*  Actualy x image css */
+.x--image {
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 50px;
+    font-size: 50px;
+    cursor: pointer;
+    filter:  
+        invert(100%)
+        sepia(100%)
+        saturate(100%)
+        hue-rotate(45deg)
+        brightness(102%)
+        contrast(101%);
+}
+
+.x--image:hover {
+    transform: scale(1.2);
+    /* background-color: rgb(19,19,19); */
 }
 
 
@@ -199,31 +245,3 @@ Card
 }
 
 
-.x--image {
-    width: 50px;
-    font-size: 50px;
-    margin: 0px;
-    padding: 0px;
-    cursor: pointer;
-    
-
-    filter: 
-        
-        invert(100%)
-        sepia(100%)
-        saturate(100%)
-        hue-rotate(45deg)
-        brightness(102%)
-        contrast(101%);
-}
-
-.x--image--container {
-    border-radius: 50%;
-    background-color: black;
-}
-
-
-
-.x--image:hover {
-    transform: scale(1.2);
-}
