@@ -5,16 +5,16 @@ import Card from "./Card";
 
 export default function Project(props) {
     let data = props.data
+    let handleClose = props.handleClose
     let handleClick = props.handleClick
     let relatedProjects = props.relatedProjects
     return (
         <div className="project--overlay">
-
-            
+            <div id='top-of-overlay'></div>
             <div className="x--image--container">
                 <img
                     className="x--image"
-                    onClick={handleClick}
+                    onClick={handleClose}
                     src={xImage} alt="X icon to close">
                 </img>
             </div>
@@ -41,7 +41,12 @@ export default function Project(props) {
                         <div className="project--related--item">
                             <Card 
                                 key={idx}
-                                handleClick={handleClick}
+                                // handleClick={handleClick}
+                                handleClick={
+                                    () => handleClick(
+                                        item.id,
+                                        relatedProjects)
+                                    }
                                 {...item}
                             />
                         </div>

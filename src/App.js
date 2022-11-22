@@ -47,7 +47,6 @@ export default function App() {
                 )
             })
             ret.push(item)
-            console.log(tech, techData, techData[tech])
         }
         setFilteredProjectData(ret)
 
@@ -58,12 +57,6 @@ export default function App() {
         setPinnedProjectData(portfolioData.filter((project) => {
             return (project.pinned === true)
         }))
-        console.log('useEffect pinned', pinnedProjectData)
-        // for (const project in portfolioData) {
-        //     let obj = portfolioData.filter((project) => {
-        //         return (project.pinned === true)
-        //     })
-        // }
     }, [portfolioData])
 
     
@@ -75,12 +68,18 @@ export default function App() {
                 setCurrentProject(() => item)
             }
         })
-    
     }
 
-    console.log("techData", techData)
-    console.log("portData", portfolioData, typeof(portfolioData))
-    console.log('test2', filteredProjectData)
+    function handleClickOverlay(id, data) {
+        data.forEach((item) => {
+            if (item.id === id) {
+                setCurrentProject(() => item)
+            }
+        })
+        const topOfOverlay = document.getElementById("top-of-overlay")
+        topOfOverlay.scrollIntoView({behavior: "smooth"})
+    }
+
 
     function handleClose() {
         setCurrentProject(() => null)
@@ -91,42 +90,49 @@ export default function App() {
 
     return (
         
+        
         <div className="main">
-            <Header />
+            {/* All besides overlay to darken when overlay pops */}
+            <div className={currentProject === null ? "" : "mask"}>
+                <Header />
+                <section className="cards-list">
+                {/* <section className={"cards-list " + (currentProject === null ? "" : "mask" )}> */}
+                    {/* Pinned//Featured Projects//Top list of projects */}
+                    <Carousel
+                        key={99}
+                        title="Featured Projects"
+                        data={pinnedProjectData}
+                        handleClick={handleClick}
+                    />
+                    {/* Rest of projects based on tech. */}
+                    {
+                        filteredProjectData.map((item, idx) => {
+                            return (
+                            item.data &&
+                            <Carousel 
+                                key={idx}
+                                title={item.title}
+                                data={item.data}
+                                handleClick={handleClick}
+                            />
+                            )
+                        })
+                    }
+                </section>
+            </div>
 
-            { 
-                currentProject === null ? null : 
-                <Project 
-                    data={currentProject}
-                    handleClick={handleClose}
-                    relatedProjects={pinnedProjectData}                
-                />
-            }
-  
-            <section className="cards-list">
-                {/* Pinned//Featured Projects//Top list of projects */}
-                <Carousel
-                    key={99}
-                    title="Featured Projects"
-                    data={pinnedProjectData}
-                    handleClick={handleClick}
-                />
-                {/* Rest of projects based on tech. */}
-                {
-                    filteredProjectData.map((item, idx) => {
-                        console.log('filteredProjectData.map', item.data, typeof(item.data))
-                        return (
-                        item.data &&
-                        <Carousel 
-                            key={idx}
-                            title={item.title}
-                            data={item.data}
-                            handleClick={handleClick}
-                        />
-                        )
-                    })
+            <section className="project--overlay--section">
+                { 
+                    currentProject === null ? null : 
+                    <Project 
+                        data={currentProject}
+                        handleClose={handleClose}
+                        handleClick={handleClickOverlay}
+                        relatedProjects={pinnedProjectData}                
+                    />
                 }
-            </section>  
+            </section>
+            
         </div>
     )
 }

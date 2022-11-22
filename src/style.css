@@ -31,7 +31,10 @@ h5 {
     color: rgb(255, 255, 255);
     z-index: 2;
 }
-
+ .project--overlay--section{
+    position: absolute;
+    top:0;
+ }
 
 
 /* 
@@ -148,6 +151,7 @@ Project Overlay --> X close buttom
     width: 50px;
     border-radius: 50%;
     background-color: black;
+    z-index: 3;
     /* background-color: pink;    */
 }
 /*  Actualy x image css */
@@ -157,6 +161,7 @@ Project Overlay --> X close buttom
     width: 50px;
     font-size: 50px;
     cursor: pointer;
+    z-index: 3;
     filter:  
         invert(100%)
         sepia(100%)
@@ -305,6 +310,19 @@ Card
 
 .noscroll {
     overflow-y: hidden;
+}
+
+.mask {
+    /* position: absolute; */
+    /* left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; */
+    background-color: black;
+    opacity: 0.5;
+    z-index: 0;
+    /* filter: blur(1px); */
+    /* z-index: 0; */
 }
 
 
