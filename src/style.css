@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body, html {
+body, html, #root {
     font-family: "Arial", sans-serif;
     margin: 0;
     height: 100%;
@@ -323,6 +323,16 @@ Card
     z-index: 0;
     /* filter: blur(1px); */
     /* z-index: 0; */
+}
+
+.footer {
+    /* position: fixed; */
+    /* position: relative;
+    left:0;
+    bottom:0;
+    right:0; */
+    /* height: 50px; */
+    margin-top: 2500px;
 }
 
 

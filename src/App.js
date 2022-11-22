@@ -3,7 +3,6 @@ import React, {useEffect} from "react";
 import Header from "./components/Header";
 import Project from "./components/Project";
 import Carousel from "./components/Carousel";
-import Footer from "./components/Footer";
 
 export default function App() {
 
@@ -131,8 +130,7 @@ export default function App() {
                         relatedProjects={pinnedProjectData}                
                     />
                 }
-            </section>
-            
+            </section> 
         </div>
     )
 }
