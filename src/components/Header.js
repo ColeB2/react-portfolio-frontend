@@ -3,14 +3,14 @@ import React from "react";
 export default function Header() {
     return (
         <header className="portfolio--header">
-            <h1 className="name">Cole B</h1>
-            <h2 className="link">
+            <h1 className="name">
                 <a 
+                    className="link"
                     href="https://coleb.pythonanywhere.com/portfolio"
                 >
-                    Simple
+                    Cole B
                 </a>
-            </h2>
+            </h1>
         </header>
 
     )
