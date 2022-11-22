@@ -5,6 +5,7 @@ import Project from "./components/Project";
 import Carousel from "./components/Carousel";
 
 export default function App() {
+    const [loading, setLoading] = React.useState(true)
 
     const [portfolioData, setPortfolioData] = React.useState([{}])
     const [currentProject, setCurrentProject] = React.useState(null)
@@ -19,15 +20,32 @@ export default function App() {
         fetch(techUrl)
             .then(res => res.json())
             .then(data => setTechData(data))
+            
     }, [techUrl])
 
     
 
     const url = "https://cole.pythonanywhere.com/api/v1/projects/"
     useEffect(() => {
+        console.log(loading)
         fetch(url)
             .then(res => res.json())
-            .then(data => setPortfolioData(data))
+            .then((data) => {
+                setPortfolioData(data)
+                setLoading(false)
+            })
+
+            //Used for testing loading spinner
+            // .then((x) => {
+            //     console.log(x)
+            //     new Promise(resolve => setTimeout(() => {
+            //         setPortfolioData(x)
+            //         setLoading(false)
+            //     }, 1000))
+            //     // setLoading(false)
+            //     console.log('end')
+            //     })
+
     }, [url])
 
     //Filtered Data for all types 1-11 Python->TypeScript
@@ -89,11 +107,17 @@ export default function App() {
 
     return (
         
-        
+        // loading !== true &&
+        loading === false ? 
         <div className="main">
+            
             {/* All besides overlay to darken when overlay pops */}
             <div className={currentProject === null ? "" : "mask"}>
                 <Header />
+                {/* <div className="test">
+                {loading === true && <div className="loader"></div>}
+                </div> */}
+                
                 <section className="cards-list">
                 {/* <section className={"cards-list " + (currentProject === null ? "" : "mask" )}> */}
                     {/* Pinned//Featured Projects//Top list of projects */}
@@ -132,5 +156,6 @@ export default function App() {
                 }
             </section> 
         </div>
+        : <div className="loader"></div>
     )
 }
