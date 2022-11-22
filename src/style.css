@@ -40,7 +40,7 @@ OVERLAY
 Main Clicked on Project Displaying 
 --> Project.js
 */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 774px) {
     .project--overlay {
         background-color: rgb(19,19,19);
         position: fixed;
@@ -55,7 +55,7 @@ Main Clicked on Project Displaying
 
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 775px) {
     .project--overlay {
         background-color: rgb(19,19,19);
         position: fixed;
@@ -176,40 +176,80 @@ Project Overlay --> X close buttom
     - Click on a project
     - Pop up screen, bottom half, display 6 related projects.
  */
-.project--related {
-    display: flex;
-    flex-wrap: wrap;
-    place-content: center;
-    background-color: rgb(19,19,19);
-    padding-bottom: 100px;
+
+@media only screen and (max-width: 774px) {
+    .project--related {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        place-content: center;
+        background-color: rgb(19,19,19);
+        padding-bottom: 100px;
+    
+    }
+    
+    .project--related--item {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+        flex: 50%;
+    }
+    
+    
+    
+    .project--related--item > div {
+        width: 300px;
+        cursor: pointer;
+    }
+    .project--related--item > div > img {
+        width: 300px;
+        height: 225px;
+    }
 
 }
 
-.project--related--item {
-    display: flex;
-    flex: 50%;
+
+
+@media only screen and (min-width: 775px) {
+    .project--related {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center;
+        background-color: rgb(19,19,19);
+        padding-bottom: 100px;
+    
+    }
+    
+    .project--related--item {
+        display: flex;
+        flex: 50%;
+    }
+    
+    
+    .project--related--item > div {
+        width: 300px;
+        cursor: pointer;
+    }
+    .project--related--item > div > img {
+        width: 300px;
+        height: 225px;
+    }
+
 }
 
-.project--related--item:nth-child(odd) {
-    justify-content: end;
-    padding: 5px 5px 5px 0px;
-}
+@media only screen and (min-width: 650px) {
+    .project--related--item:nth-child(odd) {
+        justify-content: end;
+        padding: 5px 5px 5px 0px;
+    }
+    
+    .project--related--item:nth-child(even) {
+        justify-content: start;
+        flex: 50%;
+        padding: 5px 0px 5px 5px;
+    }
 
-.project--related--item:nth-child(even) {
-    justify-content: start;
-    flex: 50%;
-    padding: 5px 0px 5px 5px;
 }
-
-.project--related--item > div {
-    width: 300px;
-    cursor: pointer;
-}
-.project--related--item > div > img {
-    width: 300px;
-    height: 225px;
-}
-
 
 
 
