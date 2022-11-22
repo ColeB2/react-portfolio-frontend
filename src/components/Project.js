@@ -9,17 +9,22 @@ export default function Project(props) {
     let relatedProjects = props.relatedProjects
     return (
         <div className="project--overlay">
-            <div className="project--image">
-                <div className="x--image--container">
-                    <img
-                        className="x--image"
-                        onClick={handleClick}
-                        src={xImage} alt="X icon to close">
-                    </img>
-                </div>
-                <img src={data.image} alt="Project" width="100%" className=""/>
-            </div>
 
+            
+            <div className="x--image--container">
+                <img
+                    className="x--image"
+                    onClick={handleClick}
+                    src={xImage} alt="X icon to close">
+                </img>
+            </div>
+            <div className="project--image">
+                <img 
+                    src={data.image}
+                    alt="Project"
+                    width="100%"
+                />
+            </div>
             <div className="project--info">
                 <div className="project--title--container">
                     <div className="project--title--bg">-</div>

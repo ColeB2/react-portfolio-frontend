@@ -51,7 +51,6 @@ Main Clicked on Project Displaying
         height: 100%;
         z-index: 2;
         overflow-y: scroll;
-        /* display: none; */
     }
 
 }
@@ -63,12 +62,11 @@ Main Clicked on Project Displaying
         margin: auto;
         left: 50%;
         transform: translateX(-50%);
-        /* width: 50%; */
         width: 775px;
         height: 100%;
         z-index: 2;
         overflow-y: scroll;
-        /* display: none; */
+        /* border: 5px solid turquoise; */
     }
 
 }
@@ -76,12 +74,12 @@ Main Clicked on Project Displaying
 
 .project--image {
     width: 100%;
-    margin: auto;
-
-    /* position: fixed; */
     position: sticky;
+    position: -webkit-sticky;
+    /* position: fixed; */
     top: 0;
     z-index: -1;
+    /* border: 5px solid orange; */
 }
 
 .project--info {
@@ -139,31 +137,22 @@ Project Overlay --> X close buttom
     x--image--container container around ximage
     x--image img class.
 */
-.x--image--overlay {
-    display: flex;
-    justify-content: end;
-    position: sticky;
-    /* position: fixed; */
-    top: 0;
-    width: 100%;
 
-}
  /* Circle around X image. */
 .x--image--container {
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
-    right: 0;
+    left: 100%;
     width: 50px;
     border-radius: 50%;
     background-color: black;
-    
-    
+    /* background-color: pink;    */
 }
 /*  Actualy x image css */
 .x--image {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
-    right: 0;
     width: 50px;
     font-size: 50px;
     cursor: pointer;
