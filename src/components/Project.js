@@ -9,7 +9,12 @@ export default function Project(props) {
     let handleClick = props.handleClick
     let relatedProjects = props.relatedProjects
     return (
-        <div className="project--overlay">
+        <div className="project--overlay"
+            tabIndex={0}
+            onFocus={console.log('focusing')}
+            onBlur={console.log('blurring')}>
+            
+            
             <div id='top-of-overlay'></div>
             <div className="x--image--container">
                 <img

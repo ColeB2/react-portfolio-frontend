@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Project from "./components/Project";
 import Carousel from "./components/Carousel";
 
+import useOutsideClick from './hooks/hooks'
+
 export default function App() {
     const [loading, setLoading] = React.useState(true)
 
@@ -27,7 +29,6 @@ export default function App() {
 
     const url = "https://cole.pythonanywhere.com/api/v1/projects/"
     useEffect(() => {
-        console.log(loading)
         fetch(url)
             .then(res => res.json())
             .then((data) => {
@@ -102,6 +103,8 @@ export default function App() {
         setCurrentProject(() => null)
     }
 
+    const ref = useOutsideClick(handleClose)
+
 
 
 
@@ -111,12 +114,21 @@ export default function App() {
         loading === false ? 
         <div className="main">
             
-            {/* All besides overlay to darken when overlay pops */}
+            {/* Main Page, sans overlay*/}
             <div className={currentProject === null ? "" : "mask disabled"}>
                 <Header />
-                {/* <div className="test">
-                {loading === true && <div className="loader"></div>}
-                </div> */}
+                <br></br><br></br><br></br><br></br><br></br>
+                <h1>hello world</h1>
+                <input
+                    onFocus={(e) => {
+                        console.log('focused on input')
+                    }}
+                    onBlur={(e) => {
+                        console.log('unfocusing input')
+                    }}
+                />
+
+
                 
                 <section className="cards-list">
                 {/* <section className={"cards-list " + (currentProject === null ? "" : "mask" )}> */}
@@ -144,14 +156,14 @@ export default function App() {
                 </section>
             </div>
 
-            <section className="project--overlay--section">
+            <section className="project--overlay--section" ref={ref}>
                 { 
                     currentProject === null ? null : 
                     <Project 
                         data={currentProject}
                         handleClose={handleClose}
                         handleClick={handleClickOverlay}
-                        relatedProjects={pinnedProjectData}                
+                        relatedProjects={pinnedProjectData}
                     />
                 }
             </section> 
