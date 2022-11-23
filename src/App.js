@@ -30,21 +30,21 @@ export default function App() {
         console.log(loading)
         fetch(url)
             .then(res => res.json())
-            // .then((data) => {
-            //     setPortfolioData(data)
-            //     setLoading(false)
-            // })
+            .then((data) => {
+                setPortfolioData(data)
+                setLoading(false)
+            })
 
             //Used for testing loading spinner
-            .then((x) => {
-                console.log(x)
-                new Promise(resolve => setTimeout(() => {
-                    setPortfolioData(x)
-                    setLoading(false)
-                }, 3000))
-                // setLoading(false)
-                console.log('end')
-                })
+            // .then((x) => {
+            //     console.log(x)
+            //     new Promise(resolve => setTimeout(() => {
+            //         setPortfolioData(x)
+            //         setLoading(false)
+            //     }, 3000))
+            //     // setLoading(false)
+            //     console.log('end')
+            //     })
 
     }, [url])
 
@@ -112,7 +112,7 @@ export default function App() {
         <div className="main">
             
             {/* All besides overlay to darken when overlay pops */}
-            <div className={currentProject === null ? "" : "mask"}>
+            <div className={currentProject === null ? "" : "mask disabled"}>
                 <Header />
                 {/* <div className="test">
                 {loading === true && <div className="loader"></div>}

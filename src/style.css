@@ -313,16 +313,10 @@ Card
 }
 
 .mask {
-    /* position: absolute; */
-    /* left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0; */
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.1;
     z-index: 0;
-    /* filter: blur(1px); */
-    /* z-index: 0; */
+    /* pointer-events: none; */
 }
 
 .footer {
