@@ -341,6 +341,13 @@ Card
 .test {
     padding-top: 200px;
 }
+.loader-text {
+    display: flex;
+    color: white;
+    padding: 20px, 20px, 20px, 20;
+    justify-content: center;
+}
+
 .loader {
     color: #ffffff;
     font-size: 90px;

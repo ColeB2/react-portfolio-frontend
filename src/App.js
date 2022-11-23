@@ -30,21 +30,21 @@ export default function App() {
         console.log(loading)
         fetch(url)
             .then(res => res.json())
-            .then((data) => {
-                setPortfolioData(data)
-                setLoading(false)
-            })
+            // .then((data) => {
+            //     setPortfolioData(data)
+            //     setLoading(false)
+            // })
 
             //Used for testing loading spinner
-            // .then((x) => {
-            //     console.log(x)
-            //     new Promise(resolve => setTimeout(() => {
-            //         setPortfolioData(x)
-            //         setLoading(false)
-            //     }, 1000))
-            //     // setLoading(false)
-            //     console.log('end')
-            //     })
+            .then((x) => {
+                console.log(x)
+                new Promise(resolve => setTimeout(() => {
+                    setPortfolioData(x)
+                    setLoading(false)
+                }, 3000))
+                // setLoading(false)
+                console.log('end')
+                })
 
     }, [url])
 
@@ -156,6 +156,15 @@ export default function App() {
                 }
             </section> 
         </div>
-        : <div className="loader"></div>
+        :
+        <div className="loader-container">
+            <div className="loader">
+            </div>
+            <h5 className="loader-text">
+                Thank you for visiting.
+                If content takes too long to load, please refresh.
+            </h5>
+        </div>
+        
     )
 }
