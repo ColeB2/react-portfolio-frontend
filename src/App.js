@@ -117,17 +117,6 @@ export default function App() {
             {/* Main Page, sans overlay*/}
             <div className={currentProject === null ? "" : "mask disabled"}>
                 <Header />
-                <br></br><br></br><br></br><br></br><br></br>
-                <h1>hello world</h1>
-                <input
-                    onFocus={(e) => {
-                        console.log('focused on input')
-                    }}
-                    onBlur={(e) => {
-                        console.log('unfocusing input')
-                    }}
-                />
-
 
                 
                 <section className="cards-list">
