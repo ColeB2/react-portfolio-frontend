@@ -56,6 +56,7 @@ export default function App() {
 
         for (const tech in techData) {
             const item = {}
+            item.techId = tech
             item.title = techData[tech].name
             item.data = portfolioData.filter((project) => {
                 return (
@@ -107,7 +108,6 @@ export default function App() {
 
 
 
-
     return (
         
         // loading !== true &&
@@ -135,6 +135,7 @@ export default function App() {
                             item.data &&
                             <Carousel 
                                 key={idx}
+                                techId={item.techId}
                                 title={item.title}
                                 data={item.data}
                                 handleClick={handleClick}
@@ -148,7 +149,8 @@ export default function App() {
             <section className="project--overlay--section" ref={ref}>
                 { 
                     currentProject === null ? null : 
-                    <Project 
+                    <Project
+                        key={98}
                         data={currentProject}
                         handleClose={handleClose}
                         handleClick={handleClickOverlay}

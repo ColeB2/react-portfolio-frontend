@@ -16,7 +16,7 @@ import Card from "./Card";
 // https://www.raddy.dev/blog/better-netflix-carousel-using-swiperjs/
 export default function Carousel(props) {
     return ( props.data.length !== 0 &&
-        <div className="">
+        <div className="" key={props.techId}>
             <h5>{props.title}</h5>
         
         <Swiper
@@ -36,10 +36,10 @@ export default function Carousel(props) {
             navigation={{}}
         >
             {
-                props.data.map(item => {
+                props.data.map((item, idx) => {
                     return (
         
-                        <SwiperSlide>
+                        <SwiperSlide key={idx}>
                             {
                                 <Card
                                     key={item.id}

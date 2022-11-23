@@ -40,10 +40,8 @@ export default function Project(props) {
             {
                 relatedProjects.map((item, idx) => {
                     return (
-                        <div className="project--related--item">
+                        <div className="project--related--item" key={idx}>
                             <Card 
-                                key={idx}
-                                // handleClick={handleClick}
                                 handleClick={
                                     () => handleClick(
                                         item.id,
